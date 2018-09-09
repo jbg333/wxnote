@@ -1,0 +1,24 @@
+<view class="container">
+  <view class='widge'>
+    <text class='column'>借贷</text>
+    <!-- <text class='column'>对接人</text>
+    <text class='column'>原由</text>-->
+    <text class='column'>时间</text>
+    <text class='link-column'>操作</text>
+  </view>
+  <scroll-view scroll-y="true">
+    <block wx:for="{{list}}">
+      <view class='widge'>
+        <text class='column'>{{item.drcr}}</text>
+        <text class='column'>{{item.createDatetime}}</text>
+        <view class='link-column'>
+      <navigator class='link' url='../operation/operation?id={{item.id}}'>编辑</navigator>
+    
+        <text class='link' bindtap='deleteData' data-id='{{item.id}}' data-index='{{index}}'>删除</text>
+        <text hidden='true' class='column'>{{item.id}}</text>
+         </view>
+      </view>
+    </block>
+  </scroll-view>
+  <button type='primary' bindtap='addRow'>添加记录</button>
+</view>

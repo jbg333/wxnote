@@ -1,0 +1,26 @@
+<view>
+  <form bindsubmit='formSubmit' bindreset='formReset'>
+    <view class='row'>
+      <text>借贷：</text>
+      <input type='text' name='drcr' placeholder='借出或者借入' value='{{drcr}}'></input>
+    </view>
+    <view class='row'>
+      <text>时间：</text>
+      <input type='text' name='dcTime' placeholder='时间' value='{{dcTime}}'></input>
+    </view>
+    <view class='row'>
+      <text>金额：</text>
+      <input type='digit' name='money' placeholder='钱数' value='{{money}}'></input>
+    </view>
+    <view class='row'>
+      <text>原由：</text>
+      <input type='text' name='remark' placeholder='借钱原有'  value='{{remark}}'></input>
+    </view>
+    <view class='row'>
+    <button type='primary' form-type='submit'>提交</button>
+      <button type='primary' form-type='reset'>清空</button>
+    </view>
+  </form>
+
+
+</view>
