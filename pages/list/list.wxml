@@ -1,22 +1,27 @@
 <view class="container">
   <view class='widge'>
-    <text class='column'>借贷</text>
-    <!-- <text class='column'>对接人</text>
-    <text class='column'>原由</text>-->
-    <text class='column'>时间</text>
-    <text class='link-column'>操作</text>
+    <text class='column'>借/贷</text>
+    <text class='column'>对接人</text>
+    <text class='column'>金额(元)</text>
+    <text class='column-time'>时间</text>
+   <!--  <text class='link-column'>操作</text>-->
   </view>
   <scroll-view scroll-y="true">
-    <block wx:for="{{list}}">
-      <view class='widge'>
-        <text class='column'>{{item.drcr}}</text>
-        <text class='column'>{{item.createDatetime}}</text>
-        <view class='link-column'>
+    <block wx:for="{{contentlist}}">
+      <view class='widge' 
+      bindtouchstart="bindTouchStart"
+       bindtouchend="bindTouchEnd"
+      bindlongtap="bingLongTap" 
+      bindtap="bindTap"
+      data-id='{{item.id}}' data-index='{{index}}'>
+       <text  class='column-hide'>{{item.id}}</text>
+        <text class='column'>{{item.drcrView}}</text>
+         <text  class='column'>{{item.abutmentUserName}}</text>
+         <text  class='column'>{{item.money}}</text>
+        <text class='column-time'>{{item.createDatetime}}</text>
+       <!-- <view class='link-column'>
       <navigator class='link' url='../operation/operation?id={{item.id}}'>编辑</navigator>
-    
-        <text class='link' bindtap='deleteData' data-id='{{item.id}}' data-index='{{index}}'>删除</text>
-        <text hidden='true' class='column'>{{item.id}}</text>
-         </view>
+         </view>-->
       </view>
     </block>
   </scroll-view>
