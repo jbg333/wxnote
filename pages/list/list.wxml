@@ -1,12 +1,16 @@
 <view class="container">
   <view class='widge'>
-    <text class='column'>借/贷</text>
-    <text class='column'>对接人</text>
-    <text class='column'>金额(元)</text>
-    <text class='column-time'>时间</text>
-   <!--  <text class='link-column'>操作</text>-->
+    <view class='column-idx-top'>
+      <view>
+        <button type='primary' bindtap='addRow' class='fixbutton'>添加记录</button>
+      </view>
+      <text class='column'>借/贷</text>
+      <text class='column'>对接人</text>
+      <text class='column'>金额(元)</text>
+      <text class='column-time'>时间</text>
+     <!--  <text class='link-column'>操作</text>-->
+     </view>
   </view>
-  <scroll-view scroll-y="true">
     <block wx:for="{{contentlist}}">
       <view class='widge' 
       bindtouchstart="bindTouchStart"
@@ -24,6 +28,4 @@
          </view>-->
       </view>
     </block>
-  </scroll-view>
-  <button type='primary' bindtap='addRow'>添加记录</button>
 </view>

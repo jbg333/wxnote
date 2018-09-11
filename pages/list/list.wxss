@@ -1,16 +1,23 @@
 /* pages/list/list.wxss */
-.widget{
+page{
+    height:100%;
+}
+.widge{
   position: relative;
+ 
   margin-top: 5rpx;
   margin-bottom: 5rpx;
   padding-top: 10rpx;
-  padding-left: 40rpx;
+ /* padding-left: 40rpx;*/
   padding-right:40rpx;
   border: #ddd  1px solid
 }
+
+
 .container{
+  position: relative;
   width: 100%;
-  height: 100rpx;
+  height: 100%;
   display: table;
   align-items: center;
   justify-content:space-between;
@@ -40,3 +47,12 @@ display: table-cell
   width: 4rem;
 display: table-cell
 }
+.widge .column-idx-top{
+  position: fixed;
+  top:0;
+  left:0;
+  z-index:5;
+  background:#6CB33E;
+  width:100%;
+}
+
