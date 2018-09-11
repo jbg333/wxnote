@@ -5,7 +5,7 @@
 // 此处主机域名是腾讯云解决方案分配的域名
 // 小程序后台服务解决方案：https://www.qcloud.com/solution/la
 
-var host = "http://127.0.0.1:8081"
+var host = "http://192.168.2.251:8081"
 
 var config = {
 

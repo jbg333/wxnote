@@ -1,6 +1,6 @@
 <view class="container">
   <view class='widge'>
-    <view class='column-idx-top'>
+    <view class='column-page-top'>
       <view>
         <button type='primary' bindtap='addRow' class='fixbutton'>添加记录</button>
       </view>
@@ -11,6 +11,7 @@
      <!--  <text class='link-column'>操作</text>-->
      </view>
   </view>
+  <view class='index-page-bottom'>
     <block wx:for="{{contentlist}}">
       <view class='widge' 
       bindtouchstart="bindTouchStart"
@@ -28,4 +29,5 @@
          </view>-->
       </view>
     </block>
+    </view>
 </view>
