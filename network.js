@@ -12,18 +12,27 @@ function postRequest(url, params, success, fail) {
 }
 
 //根据判断message 是否显示loading
-function postRequestLoading(url, params, message, success, fail) {
+function postRequestLoading(url, params, message, success, fail,useJson) {
      if (message != "") {
           wx.showLoading({
                title: message,
           })
      }
+
+     var contentType ='application/x-www-form-urlencoded';
+     if(useJson==true){
+         contentType = 'application/json'
+     }
+     if(typeof(useJson)== 'string'){
+       contentType = useJson
+     }
+
      const postRequestTask = wx.request({
           url: url,
           data: params,
           header: {
-               //'content-type': 'application/x-www-form-urlencoded',
-               'content-type': 'application/json',
+               'content-type': contentType,
+               //'content-type': ,
                'token':getApp().globalData.token
           },
           method: 'POST',

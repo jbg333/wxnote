@@ -105,7 +105,9 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    this.data.hasMoreData=true;
+    this.data.page=1;
+    this.getDataListInfo('正在加载数据...')
   },
 
   /**
@@ -150,7 +152,7 @@ Page({
 
   },
 
-  addRow: function(){
+  addRow: function(e){
     wx.navigateTo({
       url: '../operation/operation'
     })

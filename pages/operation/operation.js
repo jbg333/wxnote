@@ -21,7 +21,7 @@ Page({
     var that = this;
     //页面初始化 options为页面跳转时所携带的参数
     this.setData({
-      id: options.id
+     // id: options.id
     });
     if (options.id == undefined) {
       return;
@@ -108,7 +108,7 @@ Page({
       formData.id = that.data.id;
     }
     var data_url = hostUrl + url;
-    network.postRequestLoading(data_url, formData, '保存中', function (res) {
+    network.postRequestLoading(data_url,formData, '保存中', function (res) {
       console.log(res)
       if (res.code == 200) {
        wx.showToast({
@@ -116,8 +116,8 @@ Page({
           icon: '',
           duration: 2000
         });
-         wx.redirectTo({
-              url: '../list/list'
+         wx.navigateBack({
+              delta: 1
         })
       } else {
         wx.showToast({
@@ -130,6 +130,6 @@ Page({
         title: '保存失败'
       })
 
-    })
+    },true);
   }
 })
