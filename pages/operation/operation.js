@@ -1,6 +1,7 @@
 // pages/operation.js
+const hostUrl = require('../../config').host;
+var network  = require('../../network.js');
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -97,39 +98,38 @@ Page({
   onShareAppMessage: function () {
 
   },
-  formSubmit(e){
+  formSubmit:function(e){
     var that =this;
     var formData = e.detail.value;
-    var url = that.data.baseUrl +'' ;
+    var url ='/billbookdetail/save' ;
+    //修改
     if (that.data.id!=undefined){
-      url = that.data.baseUrl + '';
+      url = '/billbookdetail/update';
       formData.id = that.data.id;
     }
-    wx.request({
-      url: that.data.baseUrl + '',
-      method:'POST',
-      header:{
-        'Content-Type':'application/json'
-      },
-      success:function(res){
-        var result = res.data.code;
-        
-        if (result != 200) {
-          var toastText = '操作失败';
-        } else {
-          var toastText = '操作成功';
-        }
-        wx.showToast({
-          title: toastText,
+    var data_url = hostUrl + url;
+    network.postRequestLoading(data_url, formData, '保存中', function (res) {
+      console.log(res)
+      if (res.code == 200) {
+       wx.showToast({
+          title: '保存成功',
           icon: '',
           duration: 2000
         });
-        if (that.data.id != undefined){
-          wx.redirectTo({
-            url: '../list/list',
-          })
-        }
+         wx.redirectTo({
+              url: '../list/list'
+        })
+      } else {
+        wx.showToast({
+          title: res.msg
+        })
       }
+
+    }, function (res) {
+      wx.showToast({
+        title: '保存失败'
+      })
+
     })
   }
 })

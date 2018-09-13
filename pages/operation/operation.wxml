@@ -9,13 +9,19 @@
             <view class="weui-label">当前选择</view>
           </view>
           <view class="weui-cell__bd">
-            <picker bindchange="bindPickerChange" value="{{drcrIndex}}" range="{{drcrArray}}">
+            <picker bindchange="bindPickerChange" name ='drcr' value="{{drcrIndex}}" range="{{drcrArray}}">
               <view class="weui-input">{{drcrArray[drcrIndex]}}</view>
             </picker>
           </view>
         </view>
       </view>
-    
+       <view class="weui-cells__title">对接人</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" name='abutmentUserName' auto-focus placeholder="填写对接人"/>
+        </view>
+      </view>
+
 
        <view class="weui-cells__title">发生日期</view>
         <view class="weui-cells weui-cells_after-title">
@@ -43,9 +49,8 @@
         <textarea bindblur="bindTextAreaBlur" auto-height name='remark' placeholder="填写原由" value='{{remark}}'/>
       </view>
 
-      <view class='row'>
       <button type='primary' form-type='submit'>提交</button>
-      </view>
+
     </view>
   </view>
   </form>

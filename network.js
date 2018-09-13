@@ -22,7 +22,8 @@ function postRequestLoading(url, params, message, success, fail) {
           url: url,
           data: params,
           header: {
-               'content-type': 'application/x-www-form-urlencoded',
+               //'content-type': 'application/x-www-form-urlencoded',
+               'content-type': 'application/json',
                'token':getApp().globalData.token
           },
           method: 'POST',
