@@ -37,6 +37,7 @@ function postRequestLoading(url, params, message, success, fail,useJson) {
           },
           method: 'POST',
           success: function(res) {
+            console.log(res)
                if (message != "") {
                     wx.hideLoading()
                }
