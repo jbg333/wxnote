@@ -23,7 +23,7 @@
         <text class='column'>{{item.drcrView}}</text>
          <text  class='column'>{{item.abutmentUserName}}</text>
          <text  class='column'>{{item.money}}</text>
-        <text class='column-time'>{{item.drcrDate}}</text>
+        <text class='column-time'>{{item.drcrDateView}}</text>
        <!-- <view class='link-column'>
       <navigator class='link' url='../operation/operation?id={{item.id}}'>编辑</navigator>
          </view>-->

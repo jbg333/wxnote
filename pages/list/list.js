@@ -165,19 +165,16 @@ Page({
       content: '确定要删除吗？',
       success: function(sm){
         if(sm.confirm){
-          wx.request({
-            //that.data.baseUrl
-            url: hostUrl+'/api/billbookdetail/logicDelete/'+e.target.dataset.id,
-            method:'POST',
-            success:function(res){
-              var result = res.data.code;
-              var toastText = '删除成功!';
-              if(result!=200){
+          var data_url = hostUrl + '/billbookdetail/logicDelete/'+e.currentTarget.dataset.id;
+          network.getRequest(data_url, '', function (res) {
+            var code = res.code;
+             var toastText = '删除成功!';
+              if(code!=200){
                 toastText = '删除失败!';
               }else{
-                that.data.list.splice(e.target.dataset.index,1);
+                that.data.contentlist.splice(e.currentTarget.dataset.index,1);
                 that.setData({
-                  list:that.data.list
+                  contentlist:that.data.contentlist
                 })
               }
               wx.showToast({
@@ -185,8 +182,13 @@ Page({
                 icon: '',
                 duration: 2000
               });
-            }
+
+          },function(falil){
+             wx.showToast({
+               title: '删除失败!',
+            })
           })
+
         }
       }
     })
