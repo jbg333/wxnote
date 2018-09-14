@@ -139,7 +139,7 @@ Page({
       if(this.endTime  - this.startTime < 350) {
           console.log("点击")
           wx.navigateTo({
-          url: '../operation/operation?id='+e.target.dataset.id
+          url: '../operation/operation?id='+e.currentTarget.dataset.id
         })
 
       }

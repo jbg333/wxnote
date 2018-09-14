@@ -18,7 +18,7 @@
        <view class="weui-cells__title">对接人</view>
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
-          <input class="weui-input" name='abutmentUserName' auto-focus placeholder="填写对接人"/>
+          <input class="weui-input" name='abutmentUserName' value="{{abutmentUserName}}" auto-focus placeholder="填写对接人"/>
         </view>
       </view>
 

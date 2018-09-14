@@ -20,20 +20,23 @@ Page({
   onLoad: function (options) {
     var that = this;
     //页面初始化 options为页面跳转时所携带的参数
-    this.setData({
-     // id: options.id
-    });
+    //this.setData({
+    //  id: options.id
+    //});
     if (options.id == undefined) {
       return;
     }
-    wx.request({
-      url: that.data.baseUrl+'',
-      data: { id: options.id },
-      method: "GET",
-      success: function (res) {
+    var data_url = hostUrl + '/billbookdetail/info/'+options.id;
+    network.getRequest(data_url, '', function (res) {
+            var code = res.code;
+             console.log(res)
+              if(code==200){
+                 that.setData(res.data)
+              }
+          },function(falil){
+             console.log(falil)
+          })
 
-      }
-    })
   },
   bindPickerChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
