@@ -1,6 +1,7 @@
 // pages/operation.js
 const hostUrl = require('../../config').host;
 var network  = require('../../network.js');
+var util = require('../../utils/util.js');
 Page({
   /**
    * 页面的初始数据
@@ -31,6 +32,7 @@ Page({
             var code = res.code;
              console.log(res)
               if(code==200){
+                res.data.drcrDate = util.fmtDate(res.data.drcrDate)
                  that.setData(res.data)
               }
           },function(falil){
